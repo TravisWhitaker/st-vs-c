@@ -1,0 +1,28 @@
+cabal-version:       2.4
+
+name:                st-vs-c
+version:             0.1.0.0
+synopsis:            Unboxed ST versus C
+description:         Unboxed ST versus C
+homepage:            https://github.com/traviswhitaker/st-vs-c
+bug-reports:         https://github.com/traviswhitaker/st-vs-c
+license:             MIT
+license-file:        LICENSE
+author:              Travis Whitaker
+maintainer:          pi.boy.travis@gmail.com
+copyright:           Travis Whitaker 2019
+category:            Benchmarking
+extra-source-files:  README.md
+
+executable st-vs-c
+  main-is:             Main.hs
+  -- other-modules:
+  -- other-extensions:
+  build-depends:       base ^>=4.12.0.0
+                     , array
+                     , criterion
+                     , vector
+  hs-source-dirs:      src
+  c-sources:           cbits/cfuns.c
+  default-language:    Haskell2010
+  ghc-options:         -O2 -threaded
