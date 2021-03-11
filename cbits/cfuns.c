@@ -12,28 +12,32 @@ void cfree(void *p)
 	free(p);
 }
 
-uint64_t *cMallocAndPopWord(uint64_t len)
+uint64_t *cAllocWord(uint64_t len)
 {
 	uint64_t *x = malloc(sizeof(*x) * len);
+	return x;
+}
 
+double *cAllocDouble(uint64_t len)
+{
+	double *x = malloc(sizeof(*x) * len);
+	return x;
+}
+
+void cPopWord(uint64_t *x, uint64_t len)
+{
 	for(uint64_t i = 0; i < len; i++)
 	{
 		x[i] = i;
 	}
-
-	return x;
 }
 
-double *cMallocAndPopDouble(uint64_t len)
+void cPopDouble(uint64_t *x, uint64_t len)
 {
-	double *x = malloc(sizeof(*x) * len);
-
 	for(uint64_t i = 0; i < len; i++)
 	{
 		x[i] = (i / 10000);
 	}
-
-	return x;
 }
 
 void cMapTimes2Word(uint64_t *p, uint64_t len)
